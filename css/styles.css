@@ -1,0 +1,584 @@
+/* ==========================================================================
+   BỆNH VIỆN MẮT ÁNH SÁNG - BRAND LOGO DESIGN SYSTEM
+   Palette: Royal Brand Blue (#1D4B8F / #153973), Iris Cyan (#2FA4DD),
+            Vibrant Brand Orange (#EA6A1B), Crisp Ice Ivory (#F8FAFD)
+   ========================================================================== */
+
+:root {
+  --navy-950: #0A1F44;
+  --navy-900: #153973;
+  --navy-800: #1D4B8F;
+  --navy-700: #2861B5;
+  --gold-600: #C9520B;
+  --gold-500: #EA6A1B;
+  --gold-400: #F58634;
+  --gold-200: #FDE8D8;
+  --brand-orange: #EA6A1B;
+  --brand-orange-dark: #C9520B;
+  --brand-orange-light: #F58634;
+  --brand-blue: #1D4B8F;
+  --brand-cyan: #2FA4DD;
+  --ivory-50: #F8FAFD;
+  --ivory-100: #EEF3FA;
+  --white: #FFFFFF;
+  --ink-900: #0F172A;
+  --ink-700: #334155;
+  --ink-500: #64748B;
+  --ink-300: #CBD5E1;
+  --emerald-600: #0D9488;
+  --emerald-50: #F0FDFA;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --shadow-soft: 0 10px 40px -10px rgba(21, 57, 115, 0.09);
+  --shadow-luxury: 0 24px 60px -15px rgba(21, 57, 115, 0.18);
+  --shadow-gold: 0 10px 28px -6px rgba(234, 106, 27, 0.42);
+  --shadow-brand-cta: 0 10px 28px -6px rgba(234, 106, 27, 0.45);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Accessibility Font Scaling */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+html.font-scale-lg {
+  font-size: 18px;
+}
+html.font-scale-xl {
+  font-size: 20px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--ivory-50);
+  color: var(--ink-900);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 639px) {
+  .luxury-card {
+    border-radius: 18px;
+  }
+  .doctor-card-fx:hover {
+    transform: none;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  font-feature-settings: "kern" 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-500);
+  border-radius: 99px;
+}
+
+/* Luxury Brand CTA Buttons (Logo Orange & Royal Blue) */
+.btn-gold {
+  background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-dark) 50%, var(--brand-orange-light) 100%);
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-brand-cta);
+  transition: var(--transition);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -6px rgba(234, 106, 27, 0.62);
+  filter: brightness(1.06);
+}
+
+.btn-navy {
+  background: linear-gradient(135deg, var(--brand-blue) 0%, #14376D 100%);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 10px 26px -8px rgba(29, 75, 143, 0.45);
+  transition: var(--transition);
+}
+.btn-navy:hover {
+  background: linear-gradient(135deg, #2359AA 0%, var(--brand-blue) 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-luxury);
+}
+
+.btn-outline-gold {
+  border: 1.5px solid var(--brand-orange);
+  color: var(--brand-orange);
+  background: transparent;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.btn-outline-gold:hover {
+  background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-dark) 100%);
+  border-color: var(--brand-orange-dark);
+  color: var(--white);
+  box-shadow: var(--shadow-brand-cta);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(10, 31, 68, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(29, 75, 143, 0.14);
+}
+
+/* Section Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--gold-500);
+}
+
+/* Luxury Card */
+.luxury-card {
+  background: var(--white);
+  border: 1px solid rgba(11, 29, 58, 0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+.luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-luxury);
+  border-color: rgba(234, 106, 27, 0.32);
+}
+
+/* Multi-level Dropdown */
+.nav-item {
+  position: relative;
+}
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 270px;
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transition);
+  z-index: 60;
+}
+.nav-dropdown-inner {
+  background: var(--white);
+  border: 1px solid rgba(29, 75, 143, 0.16);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-luxury);
+  padding: 0.55rem;
+}
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--ink-700);
+  transition: var(--transition);
+}
+.nav-dropdown a:hover {
+  background: rgba(234, 106, 27, 0.08);
+  color: var(--brand-orange);
+  padding-left: 1.15rem;
+}
+
+.nav-link-active {
+  color: var(--brand-orange) !important;
+  background: rgba(234, 106, 27, 0.1);
+}
+
+/* Brand Logo Hover Text Colors */
+.hover\:text-gold-600:hover,
+.group:hover .group-hover\:text-gold-600 {
+  color: var(--brand-orange) !important;
+}
+.hover\:text-gold-400:hover,
+.group:hover .group-hover\:text-gold-400 {
+  color: var(--brand-orange-light) !important;
+}
+
+.dark-input {
+  color-scheme: dark;
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Before/After Slider */
+.ba-container {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  border-radius: var(--radius-lg);
+}
+.ba-after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold-500);
+  cursor: ew-resize;
+  z-index: 10;
+}
+.ba-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-gold);
+}
+
+/* Page View Transitions */
+.page-view {
+  display: none;
+  animation: fadeInView 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-view.active {
+  display: block;
+}
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gold Shimmer Accent */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D9BC82 0%, #B08B46 50%, #E7D2A4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Doctor portrait pedestal */
+.doctor-pedestal {
+  background: radial-gradient(circle at 50% 42%, rgba(47, 164, 221, 0.28) 0%, #153973 42%, #0A1F44 88%);
+  position: relative;
+}
+.doctor-pedestal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 31, 68, 0.9) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Tech spotlight pedestal */
+.tech-pedestal {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(47, 164, 221, 0.28) 0%, rgba(29, 75, 143, 0.58) 45%, #0A1F44 90%);
+  position: relative;
+}
+
+/* Architectural subtle pattern */
+.hero-mesh {
+  background-image:
+    radial-gradient(rgba(47, 164, 221, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Scrolled header polish */
+header.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 36px -12px rgba(21, 57, 115, 0.14);
+}
+
+/* Brand top/bottom card accent */
+.card-gold-accent {
+  position: relative;
+  overflow: hidden;
+}
+.card-gold-accent::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-cyan), var(--brand-orange));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-gold-accent:hover::before {
+  transform: scaleX(1);
+}
+
+/* VIP Voucher dashed border */
+.vip-voucher {
+  background: linear-gradient(135deg, #0B1D3A 0%, #132C54 100%);
+  border: 1.5px dashed rgba(217, 188, 130, 0.65);
+}
+
+/* Hide scrollbar on horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==================== KINETIC & AUTO-ANIMATED UI ==================== */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+@keyframes laserScan {
+  0% { top: 8%; opacity: 0; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.75; }
+  100% { top: 88%; opacity: 0; }
+}
+.tech-pedestal::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(47, 164, 221, 0.92), transparent);
+  box-shadow: 0 0 18px 2px rgba(47, 164, 221, 0.6);
+  animation: laserScan 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.doctors-marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+.doctors-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+
+@keyframes techProgressBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.tech-progress-fill {
+  animation: techProgressBar 4.5s linear forwards;
+}
+
+@keyframes btnShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.btn-gold {
+  background-size: 200% 200%;
+  animation: btnShimmer 5s ease infinite;
+}
+
+/* Dynamic Auto-Spotlight Card State */
+.dynamic-card-active {
+  border-color: rgba(234, 106, 27, 0.6) !important;
+  box-shadow: 0 24px 60px -15px rgba(234, 106, 27, 0.2), 0 12px 32px -12px rgba(21, 57, 115, 0.16) !important;
+  transform: translateY(-6px);
+}
+.dynamic-card-active.card-gold-accent::before {
+  transform: scaleX(1);
+}
+
+/* Smooth auto-sweep for Before/After slider */
+.ba-auto-smooth {
+  transition: width 0.08s linear, left 0.08s linear;
+}
+
+/* Fade transition for dynamic hero showcase & tickers */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide {
+  animation: fadeSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==================== DOCTOR CARD LUXURY FX ==================== */
+.doctor-card-fx {
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.45s ease;
+}
+.doctor-card-fx:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 28px 64px -16px rgba(21, 57, 115, 0.25), 0 0 0 1px rgba(234, 106, 27, 0.45);
+}
+.doctor-portrait-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.doctor-portrait-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-22deg);
+  transition: left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 15;
+  pointer-events: none;
+}
+.doctor-card-fx:hover .doctor-portrait-wrap::before {
+  left: 140%;
+}
+.doctor-card-fx .doctor-schedule-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.35s ease, margin 0.35s ease;
+}
+.doctor-card-fx:hover .doctor-schedule-reveal {
+  max-height: 90px;
+  opacity: 1;
+  margin-top: 0.75rem;
+}
+
+@keyframes cascadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-cascade {
+  animation: cascadeIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-doc-spotlight {
+  border-color: rgba(245, 134, 52, 0.78) !important;
+  box-shadow: 0 24px 60px -12px rgba(234, 106, 27, 0.28), 0 0 0 1px rgba(47, 164, 221, 0.45) !important;
+  transform: translateY(-6px);
+}
+
+/* Service Card Hover/Spotlight Specs Reveal */
+.service-specs-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, margin 0.35s ease;
+}
+.luxury-card:hover .service-specs-reveal,
+.dynamic-card-active .service-specs-reveal {
+  max-height: 80px;
+  opacity: 1;
+  margin-bottom: 0.75rem;
+}
+.dynamic-card-active .stat-bar,
+.stat-card:hover .stat-bar {
+  width: 100% !important;
+}
+.dynamic-card-active img {
+  transform: scale(1.06);
+}
+
+/* ==================== FLOATING CTA PULSE GLOW ==================== */
+@keyframes floatPulseRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  75%, 100% { transform: scale(1.55); opacity: 0; }
+}
+@keyframes floatBreath {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.06); filter: brightness(1.14); }
+}
+.floating-pulse {
+  position: relative;
+  animation: floatBreath 2.2s ease-in-out infinite;
+}
+.floating-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  opacity: 0.65;
+  animation: floatPulseRing 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  pointer-events: none;
+}
