@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mainPage === "services") renderServicesCatalog();
     if (mainPage === "support") renderSupportTab("pricing");
     if (mainPage === "knowledge") renderKnowledgeTab("pathology");
+    if (mainPage === "myopia") renderMyopiaControlPage();
     initScrollHeaderAndReveal();
   } else {
     initHeroDate();
@@ -1927,6 +1928,161 @@ function openArticleDetail(id, source = "articles") {
 
 function scrollToArticleSection(secId) {
   document.getElementById(secId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// -------------------- VIEW: MYOPIA CONTROL (KIỂM SOÁT CẬN THỊ) --------------------
+function renderMyopiaControlPage(filterTag = "all") {
+  state.myopiaFilter = filterTag;
+  const grid = document.getElementById("myopia-grid");
+  const filterWrap = document.getElementById("myopia-filters");
+  const list = DATA.myopiaArticles || [];
+  if (!grid) return;
+
+  const tags = ["all", ...new Set(list.map(x => x.tag))];
+  if (filterWrap) {
+    filterWrap.innerHTML = tags.map(t => `
+      <button onclick="renderMyopiaControlPage('${t}')" class="px-4 py-2 rounded-full text-xs font-semibold transition ${filterTag === t ? 'bg-gold-500 text-white shadow' : 'bg-white border border-slate-200 text-slate-700 hover:border-gold-400'}">
+        ${t === 'all' ? 'Tất cả bài viết' : t}
+      </button>
+    `).join("");
+  }
+
+  const filtered = filterTag === "all" ? list : list.filter(x => x.tag === filterTag);
+  grid.innerHTML = filtered.map(n => `
+    <div onclick="openMyopiaArticleDetail('${n.id}')" class="luxury-card card-gold-accent overflow-hidden flex flex-col justify-between cursor-pointer group">
+      <div>
+        <div class="h-52 overflow-hidden relative">
+          <img src="${n.image}" alt="${n.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-navy-900/85 text-gold-400 text-[11px] font-bold uppercase">${n.tag}</span>
+        </div>
+        <div class="p-6 pb-3">
+          <span class="text-[11px] font-semibold text-slate-400">${n.date} • ${n.readTime || '4 phút đọc'}</span>
+          <h3 class="font-display text-xl font-semibold text-navy-900 group-hover:text-gold-600 transition mt-1 mb-2">${n.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">${n.summary}</p>
+        </div>
+      </div>
+      <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+        <span class="text-slate-500">${n.reviewer || 'Mắt Sài Gòn Phú Thọ'}</span>
+        <span class="font-bold text-gold-600">Đọc chi tiết &rarr;</span>
+      </div>
+    </div>
+  `).join("");
+}
+
+function openMyopiaArticleDetail(id) {
+  const list = DATA.myopiaArticles || [];
+  const item = list.find(x => x.id === id);
+  const listView = document.getElementById("myopia-list-view");
+  const detailView = document.getElementById("myopia-detail-view");
+  const box = document.getElementById("myopia-detail-content");
+  if (!item || !listView || !detailView || !box) return;
+
+  const reviewer = item.reviewer || "Hội đồng Chuyên môn Mắt Sài Gòn Phú Thọ";
+  const readTime = item.readTime || "5 phút đọc";
+  const relatedServiceId = item.relatedService || "ortho-k";
+  const relatedSrv = DATA.services.find(s => s.id === relatedServiceId);
+  const others = list.filter(x => x.id !== item.id).slice(0, 3);
+
+  box.innerHTML = `
+    <div class="relative bg-navy-950 text-white py-16 sm:py-24 overflow-hidden">
+      <img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover opacity-30" />
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/80 to-navy-950/60"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button onclick="backToMyopiaList()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-gold-500 text-xs font-semibold text-white transition mb-8">
+          &larr; Quay lại Kiểm Soát Cận Thị
+        </button>
+        <div class="flex flex-wrap items-center gap-3 text-xs mb-4">
+          <span class="px-3.5 py-1 rounded-full bg-gold-500 text-white font-bold uppercase tracking-wider">${item.tag}</span>
+          <span class="text-slate-300">📅 ${item.date}</span>
+          <span class="text-slate-300">⏱ ${readTime}</span>
+          <span class="text-emerald-400 font-semibold">✓ Kiểm duyệt bởi ${reviewer}</span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-5xl font-semibold leading-tight max-w-4xl mb-4">${item.title}</h1>
+        <p class="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed">${item.summary}</p>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <aside class="lg:col-span-4 lg:sticky lg:top-24 space-y-6 order-2 lg:order-1">
+        <div class="luxury-card p-6 border-gold-500/20">
+          <div class="text-xs font-bold uppercase tracking-wider text-gold-600 mb-3">Mục lục bài viết</div>
+          <div class="space-y-2 text-sm">
+            ${item.sections.map((s, i) => `
+              <button onclick="scrollToArticleSection('myopia-sec-${i}')" class="w-full text-left px-3 py-2 rounded-xl hover:bg-ivory-100 text-navy-900 font-medium transition flex items-start gap-2">
+                <span class="text-gold-600 font-bold">0${i + 1}.</span>
+                <span>${s.heading.replace(/^\d+\.\s*/, '')}</span>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="bg-navy-900 text-white rounded-3xl p-6 space-y-4 shadow-xl border border-gold-500/30">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-gold-400">Tư vấn Kiểm soát Cận thị 1-1</div>
+          <h4 class="font-display text-2xl font-semibold">${relatedSrv ? relatedSrv.shortName : 'Đo trục nhãn cầu & Ortho-K'}</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">${relatedSrv ? relatedSrv.tagline : 'Thăm khám trực tiếp cùng đội ngũ Chuyên gia Khúc xạ tại Mắt Sài Gòn Phú Thọ (Hệ thống liên kết).'}</p>
+          <button onclick="openBookingModal('${relatedServiceId}')" class="btn-gold w-full py-3 rounded-full text-xs">Đặt lịch khám chuyên sâu &rarr;</button>
+        </div>
+      </aside>
+
+      <article class="lg:col-span-8 space-y-8 order-1 lg:order-2">
+        <div class="p-6 rounded-3xl bg-gold-200/35 border border-gold-500/30">
+          <div class="text-xs font-bold uppercase tracking-wider text-gold-600 mb-2">📌 Tóm tắt chuyên môn</div>
+          <p class="text-sm text-navy-900 leading-relaxed font-medium">${item.summary}</p>
+        </div>
+
+        <div class="space-y-8">
+          ${item.sections.map((s, i) => `
+            <section id="myopia-sec-${i}" class="scroll-mt-24 luxury-card p-6 sm:p-8 border border-slate-100">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-8 h-8 rounded-full bg-navy-900 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0">0${i + 1}</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-semibold text-navy-900">${s.heading.replace(/^\d+\.\s*/, '')}</h2>
+              </div>
+              <p class="text-base text-slate-700 leading-relaxed">${s.body}</p>
+            </section>
+          `).join("")}
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border border-emerald-500/30 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="text-xs font-bold text-emerald-700 uppercase">Thông tin đã được kiểm duyệt y khoa</div>
+            <div class="text-sm text-navy-900 font-semibold mt-1">Đặt lịch đo trục nhãn cầu &amp; tư vấn kiểm soát cận thị cùng ${reviewer}.</div>
+          </div>
+          <button onclick="openBookingModal('${relatedServiceId}')" class="btn-gold px-6 py-3 rounded-full text-xs shrink-0">Đặt lịch khám ngay</button>
+        </div>
+
+        <div>
+          <h3 class="font-display text-3xl font-semibold text-navy-900 mb-6">Bài Viết Kiểm Soát Cận Thị Liên Quan</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            ${others.map(o => `
+              <div onclick="openMyopiaArticleDetail('${o.id}')" class="luxury-card card-gold-accent overflow-hidden cursor-pointer group flex flex-col justify-between">
+                <div>
+                  <img src="${o.image}" alt="${o.title}" class="h-36 w-full object-cover group-hover:scale-105 transition duration-500" />
+                  <div class="p-4">
+                    <span class="text-[10px] font-bold text-gold-600 uppercase">${o.tag}</span>
+                    <h4 class="font-display text-lg font-semibold text-navy-900 group-hover:text-gold-600 mt-1 line-clamp-2">${o.title}</h4>
+                  </div>
+                </div>
+                <div class="px-4 pb-4 text-xs font-semibold text-navy-900">Đọc bài viết &rarr;</div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </article>
+    </div>
+  `;
+
+  listView.classList.add("hidden");
+  detailView.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  syncLangIfEn(box);
+}
+
+function backToMyopiaList() {
+  const listView = document.getElementById("myopia-list-view");
+  const detailView = document.getElementById("myopia-detail-view");
+  if (detailView) detailView.classList.add("hidden");
+  if (listView) listView.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // -------------------- VIEW: OPTICAL SHOP & CART --------------------

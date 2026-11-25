@@ -17,6 +17,8 @@ window.VI_EN_DICT = {
   "Bác sĩ": "Doctors",
   "Đội ngũ Bác sĩ": "Medical Team",
   "Dịch vụ": "Services",
+  "Kiểm soát cận thị": "Myopia Control",
+  "Kiểm Soát Cận Thị": "Myopia Control",
   "Dịch vụ & Chuyên khoa": "Services & Specialties",
   "Phẫu thuật Khúc xạ SMILE Pro / ICL": "SMILE Pro / Phakic ICL Refractive Surgery",
   "Phẫu thuật Phaco Đục thủy tinh thể": "Phaco Cataract Surgery",

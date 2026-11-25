@@ -24,6 +24,7 @@ window.HOSPITAL_DATA = {
       nav_about: "Về chúng tôi",
       nav_doctors: "Bác sĩ",
       nav_services: "Dịch vụ",
+      nav_myopia: "Kiểm soát cận thị",
       nav_support: "Hỗ trợ",
       nav_knowledge: "Kiến thức",
       nav_shop: "Cửa hàng kính",
@@ -90,6 +91,7 @@ window.HOSPITAL_DATA = {
       nav_about: "About Us",
       nav_doctors: "Doctors",
       nav_services: "Services",
+      nav_myopia: "Myopia Control",
       nav_support: "Patient Care",
       nav_knowledge: "Knowledge",
       nav_shop: "Optical Shop",
@@ -607,6 +609,105 @@ window.HOSPITAL_DATA = {
       sections: [
         { heading: "1. Cơ chế điều tiêu ngoại biên", body: "Khác với kính gọng thông thường, Ortho-K tạo vùng hội tụ ánh sáng chuẩn trên võng mạc ngoại biên, triệt tiêu tín hiệu kích thích nhãn cầu dài ra." },
         { heading: "2. Nguyên tắc vệ sinh an toàn", body: "Phụ huynh và trẻ cần rửa tay sạch bằng xà phòng không dầu, ngâm kính bằng dung dịch chuyên dụng mỗi sáng." }
+      ]
+    }
+  ],
+
+  myopiaArticles: [
+    {
+      id: "ortho-k-ban-dem-kiem-soat-can",
+      title: "Kính Ortho-K ban đêm – Giải pháp vàng kìm hãm tăng độ cận cho trẻ em",
+      date: "18/11/2026",
+      tag: "Ortho-K Ban Đêm",
+      readTime: "5 phút đọc",
+      reviewer: "BSCKI Trần Thu Hà",
+      relatedService: "ortho-k",
+      image: "assets/images/services/srv-orthok.jpg",
+      summary: "Đeo kính áp tròng cứng thấm khí khi ngủ giúp trẻ nhìn rõ 10/10 vào ban ngày mà không cần kính gọng, đồng thời giảm tới 50–80% tốc độ tăng độ cận.",
+      sections: [
+        { heading: "1. Cơ chế định hình giác mạc khi ngủ", body: "Ortho-K (Orthokeratology) hoạt động trong 6–8 giờ ngủ ban đêm, nhẹ nhàng làm phẳng vùng trung tâm giác mạc theo thông số bản đồ giác mạc 3D riêng của từng bé. Khi thức dậy và tháo kính, trẻ có thể nhìn rõ suốt cả ngày." },
+        { heading: "2. Hiệu quả kìm hãm dài trục nhãn cầu", body: "Các nghiên cứu nhãn khoa quốc tế chứng minh hiệu ứng điều tiêu ngoại biên của Ortho-K giúp triệt tiêu tín hiệu kích thích nhãn cầu dài ra, giảm tốc độ tăng độ cận từ 50% đến 80% so với đeo kính gọng đơn tròng." },
+        { heading: "3. Đối tượng phù hợp tại Mắt Sài Gòn Phú Thọ", body: "Trẻ từ 6–18 tuổi có độ cận tăng nhanh trên 0.5 Diop/năm, trẻ chơi thể thao năng động hoặc người chưa đủ 18 tuổi chưa thể phẫu thuật khúc xạ." }
+      ]
+    },
+    {
+      id: "trong-kinh-kiem-soat-can-thi-dims",
+      title: "Tròng kính kiểm soát cận thị công nghệ đa điểm hội tụ (D.I.M.S / H.A.L.T)",
+      date: "14/11/2026",
+      tag: "Tròng Kính Kiểm Soát",
+      readTime: "4 phút đọc",
+      reviewer: "GS.TS Nguyễn Minh Tuấn",
+      relatedService: "kham-tong-quat",
+      image: "assets/images/facility/consultation.webp",
+      summary: "Lựa chọn nhẹ nhàng không xâm lấn cho trẻ chưa sẵn sàng đeo kính áp tròng ban đêm, giúp làm chậm tiến triển cận thị tới 60–67%.",
+      sections: [
+        { heading: "1. Khác biệt so với kính gọng thông thường", body: "Kính gọng đơn tròng truyền thống chỉ giúp nhìn rõ ở trung tâm nhưng tạo ra hiện tượng viễn thị ngoại biên, vô tình thúc đẩy trục nhãn cầu tiếp tục dài ra. Tròng kính kiểm soát cận thị thế hệ mới khắc phục hoàn toàn nhược điểm này." },
+        { heading: "2. Công nghệ vi thấu kính đa vùng", body: "Hàng trăm vi thấu kính siêu nhỏ được bố trí quanh vùng quang học trung tâm tạo tín hiệu làm chậm sự giãn dài của nhãn cầu mà vẫn đảm bảo tầm nhìn sắc nét, dễ thích nghi chỉ sau 1–3 ngày đeo." },
+        { heading: "3. Lưu ý khi cắt kính chuẩn y khoa", body: "Trẻ cần được đo khúc xạ liệt điều tiết, đo khoảng cách đồng tử (PD) và tâm mắt chính xác bởi bác sĩ hoặc cử nhân khúc xạ nhãn khoa." }
+      ]
+    },
+    {
+      id: "thuoc-nho-atropine-nong-do-thap",
+      title: "Liệu pháp Atropine nồng độ thấp (0.01% – 0.05%) trong kiểm soát cận thị",
+      date: "10/11/2026",
+      tag: "Nghiên Cứu Y Khoa",
+      readTime: "5 phút đọc",
+      reviewer: "PGS.TS Lê Hoàng Việt",
+      relatedService: "kham-tong-quat",
+      image: "assets/images/facility/about-left.webp",
+      summary: "Phác đồ nhỏ mắt ban đêm được Hiệp hội Nhãn khoa Thế giới khuyến nghị cho trẻ tăng độ cận nhanh, có thể phối hợp cùng Ortho-K hoặc kính gọng.",
+      sections: [
+        { heading: "1. Vì sao phải dùng nồng độ thấp?", body: "Nghiên cứu ATOM2 và LAMP chứng minh Atropine 0.01% – 0.05% giữ được hiệu quả kìm hãm tăng độ cận 50–67% nhưng hầu như không gây giãn đồng tử, không chói sáng hay mờ khi nhìn gần." },
+        { heading: "2. Phối hợp đa mô thức", body: "Với những trẻ có tốc độ tăng độ trên 1.0 Diop/năm, bác sĩ tại Mắt Sài Gòn Phú Thọ có thể chỉ định kết hợp Atropine nồng độ thấp cùng kính Ortho-K hoặc tròng kính kiểm soát cận thị để tối ưu hiệu quả." },
+        { heading: "3. Tuân thủ tái khám định kỳ", body: "Thuốc cần được kê đơn và theo dõi sát sao mỗi 3–6 tháng, tuyệt đối không tự ý mua hoặc ngừng thuốc đột ngột để tránh hiện tượng tăng độ dội ngược." }
+      ]
+    },
+    {
+      id: "quy-tac-20-20-20-va-anh-sang-tu-nhien",
+      title: "Quy tắc 20-20-20 và 2 giờ hoạt động ngoài trời mỗi ngày bảo vệ mắt trẻ",
+      date: "06/11/2026",
+      tag: "Thói Quen & Dinh Dưỡng",
+      readTime: "4 phút đọc",
+      reviewer: "BSCKI Trần Thu Hà",
+      relatedService: "kham-tong-quat",
+      image: "assets/images/patients/story-4.webp",
+      summary: "Thay đổi thói quen học tập và tăng cường tiếp xúc ánh sáng tự nhiên là nền tảng miễn phí nhưng cực kỳ hiệu quả để phòng ngừa cận thị học đường.",
+      sections: [
+        { heading: "1. Vai trò của ánh sáng mặt trời và Dopamine", body: "Ánh sáng tự nhiên ngoài trời (cường độ trên 10.000 lux) kích thích võng mạc tiết ra Dopamine – chất dẫn truyền thần kinh giúp ngăn chặn trục nhãn cầu dài ra quá mức." },
+        { heading: "2. Thực hành quy tắc 20-20-20 đúng cách", body: "Sau mỗi 20 phút học tập hoặc nhìn màn hình, hãy cho mắt nghỉ ngơi nhìn ra xa tối thiểu 20 feet (khoảng 6 mét) trong ít nhất 20 giây để cơ thể mi được thư giãn hoàn toàn." },
+        { heading: "3. Khoảng cách đọc sách và ánh sáng bàn học", body: "Giữ khoảng cách từ mắt đến sách 35–40cm, lưng thẳng, sử dụng đèn học chống chói có chỉ số hoàn màu CRI > 90 và kết hợp ánh sáng phòng đầy đủ." }
+      ]
+    },
+    {
+      id: "do-truc-nhan-cau-al-la-gi",
+      title: "Tại sao cần đo chiều dài trục nhãn cầu (Axial Length) định kỳ mỗi 6 tháng?",
+      date: "01/11/2026",
+      tag: "Nghiên Cứu Y Khoa",
+      readTime: "5 phút đọc",
+      reviewer: "TS.BS Vũ Thị Thanh",
+      relatedService: "kham-tong-quat",
+      image: "assets/images/facility/about-right.webp",
+      summary: "Đo độ cận (Diop) chỉ là bề nổi; đo chiều dài trục nhãn cầu bằng máy sinh trắc học quang học mới là thước đo vàng đánh giá hiệu quả kiểm soát cận thị.",
+      sections: [
+        { heading: "1. Mối liên hệ giữa trục nhãn cầu và độ cận", body: "Trung bình cứ mỗi 1 mm chiều dài trục nhãn cầu tăng thêm sẽ tương ứng với khoảng 2.5 – 3.0 Diop độ cận. Ở trẻ em, trục nhãn cầu có thể giãn dài âm thầm trước khi độ cận trên kính thay đổi rõ rệt." },
+        { heading: "2. Theo dõi chính xác hiệu quả điều trị", body: "Khi trẻ đang sử dụng Ortho-K, giác mạc đã được định hình nên không thể đo độ cận thông thường để đánh giá tiến triển. Lúc này, máy đo trục nhãn cầu không tiếp xúc (độ chính xác 0.01 mm) sẽ cho biết phác đồ có đang phát huy tác dụng hay không." },
+        { heading: "3. Cá nhân hóa biểu đồ tăng trưởng mắt", body: "Tại Mắt Sài Gòn Phú Thọ (Hệ thống liên kết), mỗi trẻ có một hồ sơ theo dõi trục nhãn cầu riêng theo biểu đồ chuẩn lứa tuổi." }
+      ]
+    },
+    {
+      id: "can-thi-nang-va-nguy-co-vong-mac",
+      title: "Cảnh báo cận thị nặng trên 6 Diop: Nguy cơ thoái hóa & bong rách võng mạc",
+      date: "25/10/2026",
+      tag: "Nghiên Cứu Y Khoa",
+      readTime: "6 phút đọc",
+      reviewer: "PGS.TS Lê Hoàng Việt",
+      relatedService: "day-mat",
+      image: "assets/images/facility/hospital-interior.jpg",
+      summary: "Kiểm soát cận thị sớm không chỉ giúp trẻ giảm phụ thuộc kính dày, mà quan trọng hơn là phòng ngừa các biến chứng đáy mắt nguy hiểm khi trưởng thành.",
+      sections: [
+        { heading: "1. Cận thị bệnh lý ảnh hưởng đến võng mạc như thế nào?", body: "Khi nhãn cầu bị kéo dài quá mức (trục nhãn cầu > 26 mm hoặc độ cận > 6 Diop), lớp võng mạc và hắc mạc phía sau bị căng mỏng, dễ xuất hiện vùng thoái hóa hàng rào, lỗ rách võng mạc hoặc tân mạch hoàng điểm." },
+        { heading: "2. Dấu hiệu cảnh báo cần đi khám ngay", body: "Nếu thấy hiện tượng chớp sáng như tia chớp, ruồi bay tăng đột ngột hoặc có màn đen che khuất một góc tầm nhìn, người bệnh cần khám đáy mắt cấp cứu trong 24 giờ." },
+        { heading: "3. Tầm soát đáy mắt định kỳ bằng chụp OCT", body: "Người cận thị nặng nên chụp cắt lớp võng mạc OCT và soi đáy mắt giãn đồng tử ít nhất mỗi 6–12 tháng để phát hiện và xử lý laser quang đông dự phòng kịp thời." }
       ]
     }
   ],
