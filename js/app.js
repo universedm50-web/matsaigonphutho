@@ -1989,7 +1989,7 @@ function openMyopiaArticleDetail(id) {
       <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-900/80 to-navy-950/60"></div>
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <button onclick="backToMyopiaList()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-gold-500 text-xs font-semibold text-white transition mb-8">
-          &larr; Quay lại Kiểm Soát Cận Thị
+          &larr; Quay lại Trung Tâm Kiểm Soát Cận Thị
         </button>
         <div class="flex flex-wrap items-center gap-3 text-xs mb-4">
           <span class="px-3.5 py-1 rounded-full bg-gold-500 text-white font-bold uppercase tracking-wider">${item.tag}</span>
